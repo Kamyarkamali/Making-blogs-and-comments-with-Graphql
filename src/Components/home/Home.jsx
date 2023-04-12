@@ -12,7 +12,7 @@ const Home = () => {
                     <Typography fontWeight={700} component="h3" variant='h5' mb={3}>نویسنده ها</Typography>
                     <Author/>
                 </Grid>
-                <Grid item item xs={13} md={9} mt={4}>
+                <Grid item  xs={13} md={9} mt={4}>
                 <Typography fontWeight={700} component="h3" variant='h5' mb={3}>مقالات</Typography>
                 <Blog/>
                 </Grid>
