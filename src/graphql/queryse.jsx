@@ -19,7 +19,7 @@ query{
 }
 `
 
-export const GET_AUTHORS=gql`
+export const GET_AUTHORS_INFO=gql`
 query{
   authors {
     id
@@ -27,6 +27,38 @@ query{
     slug
     avatar {
       url
+    }
+  }
+}
+`
+
+export const GET_AVATAR=gql`
+query MyQuery {
+  authors {
+    avatar {
+      url
+    }
+  }
+}
+`
+export const GET_AUTHOR=gql`
+query getAuthor($slug:String!) {
+  author(where: {slug:$slug}) {
+    avatar {
+      url
+    }
+    field
+    name
+    description {
+      html
+    }
+    posts {
+      coverPhto {
+        url
+      }
+      id
+      title
+      slug
     }
   }
 }

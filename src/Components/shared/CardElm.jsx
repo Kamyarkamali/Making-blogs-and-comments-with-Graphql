@@ -1,6 +1,6 @@
 import { Card, CardHeader,Avatar, CardContent, CardActions, Typography, CardMedia, Divider, Button } from '@mui/material';
 import React from 'react';
-// import Link from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const CardElm = ({title,slug,coverPhto,author}) => {
     return (
@@ -18,9 +18,9 @@ const CardElm = ({title,slug,coverPhto,author}) => {
                 <Divider variant='middle' sx={{margin:"10px"}}/>
                 </CardContent>
                 <CardActions>
-                    {/* <Link to={`/blog/${slug}`}> */}
+                    <Link to={`/blog/${slug}`}>
                     <Button sx={{width:"100%",borderRadius:3}} variant='outlined' size="medium">خواندن مقاله</Button>
-                    {/* </Link> */}
+                    </Link>
                 </CardActions>
             </Card>
             

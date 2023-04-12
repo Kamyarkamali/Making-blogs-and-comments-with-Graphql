@@ -1,18 +1,26 @@
 import React from 'react';
-import { GET_AUTHORS } from '../../graphql/queryse';
+import { GET_AUTHORS_INFO } from '../../graphql/queryse';
 import { useQuery } from '@apollo/client';
+import { Avatar, Grid, Typography } from '@mui/material';
+import {Link} from "react-router-dom"
 
 const Author = () => {
-    const {loading,error,data}=useQuery(GET_AUTHORS)
-
-    if(loading) console.log("loading");
-    if(error) console.log("errorr");
-    if(data) console.log(data);
-
+    const {loading,data,error}=useQuery(GET_AUTHORS_INFO)
+    if(error)return <h2>error...</h2>
+    if(loading)return <h2>Loading...</h2>
+    const {authors}=data
+    
     return (
-        <div>
-            نویسنده ها
-        </div>
+        <Grid container>
+                {authors.map((author,index)=>(
+            <Grid item key={index}>
+                <Link to={`/authors/${author.slug}`}>
+                    <Avatar src={author.avatar.url}/>
+                <Typography component="p" variant='p' sx={{marginTop:3}}>کامیار کمالی کازانی</Typography>
+                </Link>
+            </Grid>
+                ))}
+        </Grid>
     );
 };
 
