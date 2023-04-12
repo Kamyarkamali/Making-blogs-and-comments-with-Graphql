@@ -3,11 +3,16 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const CardElm = ({title,slug,coverPhto,author}) => {
+    
+        
     return (
         <div>
             <Card sx={{boxShadow:"rgba(0,0,0,0.1) 0px 4px 12px",borderRadius:4}}>
             <div>
-                <CardHeader title={<Typography color="text.primary" component="p" variant='p'>{author.name}</Typography>} avatar={<Avatar sx={{marginLeft:4}} src={author.avatar.url}/>}/>
+                {
+                    author && 
+                    <CardHeader title={<Typography color="text.primary" component="p" variant='p'>{author.name}</Typography>} avatar={<Avatar sx={{marginLeft:4}} src={author.avatar.url}/>}/>
+                }
                
                 </div>
                
@@ -26,6 +31,7 @@ const CardElm = ({title,slug,coverPhto,author}) => {
             
         </div>
     );
+
 };
 
 export default CardElm;
