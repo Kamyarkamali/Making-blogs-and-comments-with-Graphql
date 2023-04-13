@@ -2,12 +2,13 @@ import React from 'react';
 import { GET_AUTHORS_INFO } from '../../graphql/queryse';
 import { useQuery } from '@apollo/client';
 import { Avatar, Grid, Typography } from '@mui/material';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import Loader from '../shared/Loader';
 
 const Author = () => {
     const {loading,data,error}=useQuery(GET_AUTHORS_INFO)
     if(error)return <h2>error...</h2>
-    if(loading)return <h2>Loading...</h2>
+    if(loading)return <Loader/>
     const {authors}=data
     
     return (

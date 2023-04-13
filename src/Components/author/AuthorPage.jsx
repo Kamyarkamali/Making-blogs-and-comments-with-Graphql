@@ -5,6 +5,7 @@ import { GET_AUTHOR } from '../../graphql/queryse';
 import {Avatar, Container, Grid, Typography} from "@mui/material";
 import sanitizeHtml from "sanitize-html"
 import CardElm from "../shared/CardElm";
+import Loader from '../shared/Loader';
 
 function AuthorPage() {
     const {slug}=useParams()
@@ -12,7 +13,8 @@ function AuthorPage() {
         variables:{slug}
     })
     console.log(data || null)
-    if(!data) return <h1>Plase waite</h1>
+    if(!data) return <Loader/>
+    if(loading) return <Loader/>
   return (
    <>
         <Container maxWidth="lg">
