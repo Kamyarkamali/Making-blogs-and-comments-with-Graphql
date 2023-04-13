@@ -16,10 +16,10 @@ function BlogPages() {
     variables:{slug}
   });
 
+
   if(loading) return <Loader/>
   if(error) return <h3>خطایی رخ داد , دوباره تلاش کتید</h3>
 
-  console.log(data)
   return (
     <Container maxWidth="lg">
 
