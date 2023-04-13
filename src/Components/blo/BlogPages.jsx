@@ -7,6 +7,7 @@ import {Avatar, Box, Container, Grid, Typography} from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import sanitizeHtml from "sanitize-html";
 import CardElm from "../shared/CardElm";
+import Comments from '../comments/Comments';
 
 function BlogPages() {
   const navigate=useNavigate();
@@ -45,6 +46,10 @@ function BlogPages() {
 
     <Grid item xs={12} mt={3}>
     <div dangerouslySetInnerHTML={{__html:sanitizeHtml(data.post.content.html)}}></div>
+    </Grid>
+
+    <Grid item>
+    <Comments slug={slug}/>
     </Grid>
 
     </Grid>
