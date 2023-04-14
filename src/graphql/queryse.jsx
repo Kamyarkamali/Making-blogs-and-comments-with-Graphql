@@ -83,6 +83,16 @@ query getPost($slug:String!) {
     }
   }
 }
+`
+
+export const GET_COMMENT=gql`
+query getcomments($slug:String!) {
+  comments(where: {post: {slug:$slug}}) {
+    id
+    name
+    text
+  }
+}
 
 `
 

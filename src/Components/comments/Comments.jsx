@@ -5,12 +5,15 @@ import { useMutation } from "@apollo/client";
 import SEND_COMMENTS from "../../graphql/mutation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from "../shared/Loader";
+
 
 
 const Comments = ({slug}) => {
     const [name,setName]=useState("");
     const [text,setText]=useState("");
     const [email,setEmail]=useState("");
+
 
     const [senComment,{loading,error,data}]=useMutation(SEND_COMMENTS,
         {variables:{name,text,email,slug},
@@ -25,12 +28,12 @@ const Comments = ({slug}) => {
     }
 
     if(error) return <h6>error</h6>
-    
+    if(loading) return <Loader/>
 
     
 
     if(data){
-        toast.success("کامنت شما ارسال شد و بعد از تایید نمایش داده میشود")
+        toast.success("کامنت شما ارسال شد و بعد از تایید نمایش داده میشود",{position:"top-center"})
     }
 
     return (
@@ -58,6 +61,7 @@ const Comments = ({slug}) => {
 
                 }
               </Grid>
+              
               <ToastContainer/>
             </Grid>
     );

@@ -6,8 +6,8 @@ import Loader from '../shared/Loader';
 import {Avatar, Box, Container, Grid, Typography} from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import sanitizeHtml from "sanitize-html";
-import CardElm from "../shared/CardElm";
 import Comments from '../comments/Comments';
+import Comment from '../comments/Comment';
 
 function BlogPages() {
   const navigate=useNavigate();
@@ -52,6 +52,9 @@ function BlogPages() {
     <Comments slug={slug}/>
     </Grid>
 
+    <Grid item xs={12}>
+     <Comment slug={slug}/>
+      </Grid>
     </Grid>
 
     </Container>
